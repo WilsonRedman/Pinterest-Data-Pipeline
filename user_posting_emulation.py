@@ -82,6 +82,7 @@ def post_data(invoke_url, selected_rows):
     headers = {'Content-Type': 'application/vnd.kafka.json.v2+json'}
     response = requests.request("POST", invoke_url, headers=headers, data=payload)
 
+
 if __name__ == "__main__":
     run_infinite_post_data_loop()
     print('Working')
