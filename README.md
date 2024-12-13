@@ -18,7 +18,9 @@ Mount S3 bucket to databricks
 ## Usage
 Data is retrieved from an external database in `user_posting_emulation.py`, and the function `run_infinite_post_data_loop` is used to emulate data streaming. It selects data from three different tables in a database and sends each to a different kafka topic via a created API.
 
-`s3_cleaning_functions.ipynb` provides functions for loading S3 data into a dataframe via `read_s3`. These dataframes can then be cleaned dependent on the topic via `clean_pin_data`, `clean_geo_data`, and `clean_user_data`.
+`Databircks/s3_cleaning_functions.ipynb` provides functions for loading S3 data into a dataframe via `read_s3`. These dataframes can then be cleaned dependent on the topic via `clean_pin_data`, `clean_geo_data`, and `clean_user_data`.
+
+
 
 ## Structure
 
@@ -29,6 +31,8 @@ An EC2 instance has Kafka setup, connected to an MSK instance. Three topics `pin
 
 
 ### Repository Structure
+The `Airflow` directory contains the python file `0e59bc5e89eb_dag` creating a DAG to automatically retrieve, clean, and save the kafka data inside of a databricks database.
+
 The `Databricks` directory contains all of the python notebooks used to load data from the MSK S3 bucket, and clean it via `s3_cleaning_functions.ipynb`. `data_querying.ipynb` contains example transformations of the data using pyspark.
 
 
@@ -37,8 +41,10 @@ Created custom plugin using S3 bucket.
 
 Created connector.
 
-Created API
+Created API.
 
-Connected API to Kafka
+Connected API to Kafka.
 
 Setup databricks to load S3 data, clean, and query.
+
+Created apache airflow DAG to automatically clean and save batch data daily.
