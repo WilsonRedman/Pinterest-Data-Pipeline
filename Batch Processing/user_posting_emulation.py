@@ -1,8 +1,6 @@
 import requests
 from time import sleep
 import random
-from multiprocessing import Process
-import boto3
 import json
 import yaml
 import sqlalchemy
@@ -73,6 +71,7 @@ def serialize_datetime(obj):
 def post_data(invoke_url, selected_rows):
 
     records = []
+    print(selected_rows)
     for row in selected_rows:
         result = dict(row._mapping)
         records.append({"value": result})
