@@ -42,7 +42,7 @@ Use `user_posting_emulation_streaming.py` to periodically send data into the kin
 
 ## Usage
 ### Batch Processing
-Data is retrieved from an external database in [user_posting_emulation.py](Batch%20Processing/Databricks/user_posting_emulation.py), and the function `post_data_loop` is used to emulate data streaming. It selects data from three different tables in a database and sends each to a different kafka topic via a created API.
+Data is retrieved from an external database in [user_posting_emulation.py](Batch%20Processing/user_posting_emulation.py), and the function `post_data_loop` is used to emulate data streaming. It selects data from three different tables in a database and sends each to a different kafka topic via a created API.
 
 [s3_cleaning_functions.ipynb](Batch%20Processing/Databricks/s3_cleaning_functions.ipynb) provides functions for loading S3 data into a dataframe via `read_s3`. These dataframes can then be cleaned dependent on the topic via `clean_pin_data`, `clean_geo_data`, and `clean_user_data`.
 
