@@ -60,8 +60,11 @@ Data is retrieved from an external database in [user_posting_emulation.py](Batch
 
 ## Structure
 ### Project Structure
+
+![Project Structure Image](Structure/CloudPinterestPipeline.png)
+
 #### Batch Processing
-An EC2 instance has Kafka setup, connected to an MSK instance. Three topics `pin`, `geo`, and `user` are created for the three emulated data streams.
+An EC2 instance has Kafka setup, connected to an MSK instance. Airflow triggers databricks daily to retrieve data from the MSK S3 bucket, clean, and store it.
 
 #### Streaming
 Data is read from tables at random time intervals to act like streaming data. This is sent to the kinesis stream via an API, using 
