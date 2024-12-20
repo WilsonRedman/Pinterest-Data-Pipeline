@@ -21,9 +21,9 @@ with DAG("0e59bc5e89eb_dag",
     ) as dag:
     
     clean_data = DatabricksSubmitRunOperator(
-        task_id = "clean_pinterest_data",
+        task_id = "clean_pinterest_data", ## Task Name
         databricks_conn_id = "databricks_default",
-        existing_cluster_id = "1108-162752-8okw8dgg",
+        existing_cluster_id = "1108-162752-8okw8dgg", ## Databricks cluster ID
         notebook_task = cleaning_task
     )
     clean_data ## Only single node in DAG
